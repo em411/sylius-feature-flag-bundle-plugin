@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="em411_sylius_feature_flag.provider.doctrine"
+                 class="Em411\SyliusFeatureFlagPlugin\Provider\DoctrineFeatureFlagProvider">
+            <argument type="service" id="em411_sylius_feature_flag.repository.feature_flag"/>
+            <tag name="ajgarlag.feature_flag.provider"
+                 priority="%em411_sylius_feature_flag_plugin.provider_priority%"/>
+            <tag name="kernel.reset" method="reset"/>
+        </service>
+
+        <service id="em411_sylius_feature_flag.form.type.feature_flag"
+                 class="Em411\SyliusFeatureFlagPlugin\Form\Type\FeatureFlagType">
+            <argument>Em411\SyliusFeatureFlagPlugin\Entity\FeatureFlag</argument>
+            <argument type="collection"/>
+            <tag name="form.type"/>
+        </service>
+
+        <service id="em411_sylius_feature_flag.listener.admin_menu"
+                 class="Em411\SyliusFeatureFlagPlugin\Menu\AdminMenuListener">
+            <tag name="kernel.event_listener" event="sylius.menu.admin.main" method="addAdminMenuItems"/>
+        </service>
+    </services>
+</container>
