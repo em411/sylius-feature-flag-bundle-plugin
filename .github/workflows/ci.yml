@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  pull_request: ~
+  push: ~
+  workflow_dispatch: ~
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.4']
+
+    name: PHP ${{ matrix.php }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          extensions: :xdebug, pdo_sqlite
+          tools: php-cs-fixer
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ matrix.php }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            composer-${{ matrix.php }}-
+
+      - run: composer update --no-progress --prefer-stable
+
+      - run: vendor/bin/phpunit
+
+      - run: php-cs-fixer check --diff
