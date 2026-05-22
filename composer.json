@@ -1,0 +1,48 @@
+{
+    "name": "em411/sylius-feature-flag-bundle-plugin",
+    "type": "symfony-bundle",
+    "description": "Manage em411/feature-flag-bundle feature flags from the Sylius admin panel.",
+    "keywords": ["sylius", "sylius-plugin", "feature", "flag", "feature flag", "toggle"],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.4",
+        "doctrine/doctrine-bundle": "^2.0",
+        "doctrine/orm": "^2.7",
+        "doctrine/persistence": "^1.3 || ^2.0",
+        "em411/feature-flag-bundle": "^1.0",
+        "knplabs/knp-menu": "^3.0",
+        "sylius/grid-bundle": "^1.8",
+        "sylius/resource-bundle": "^1.6",
+        "sylius/ui-bundle": "^1.8",
+        "symfony/config": "^4.4",
+        "symfony/dependency-injection": "^4.4",
+        "symfony/event-dispatcher": "^4.4",
+        "symfony/form": "^4.4",
+        "symfony/http-kernel": "^4.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "symfony/framework-bundle": "^4.4",
+        "symfony/twig-bundle": "^4.4",
+        "symfony/yaml": "^4.4",
+        "twig/twig": "^2.12 || ^3.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/em411/feature-flag-bundle"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Em411\\SyliusFeatureFlagPlugin\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Em411\\SyliusFeatureFlagPlugin\\Tests\\": "tests/" }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
