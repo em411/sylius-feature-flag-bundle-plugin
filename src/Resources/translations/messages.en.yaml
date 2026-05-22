@@ -1,0 +1,9 @@
+em411_sylius_feature_flag:
+    ui:
+        feature_flags: Feature flags
+        code: Code
+        description: Description
+    form:
+        code: Code
+        value: Value
+        description: Description
