@@ -1,0 +1,9 @@
+em411_sylius_feature_flag_admin_feature_flag:
+    resource: |
+        alias: em411_sylius_feature_flag.feature_flag
+        section: admin
+        templates: "@SyliusAdmin/Crud"
+        redirect: update
+        grid: em411_sylius_feature_flag_admin_feature_flag
+        permission: false
+    type: sylius.resource
