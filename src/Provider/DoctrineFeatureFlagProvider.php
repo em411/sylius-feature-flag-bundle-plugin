@@ -37,7 +37,11 @@ final class DoctrineFeatureFlagProvider implements ProviderInterface, ResetInter
         if (null === $this->flags) {
             $this->flags = [];
             foreach ($this->repository->findAll() as $flag) {
-                $this->flags[$flag->getCode()] = $flag;
+                $code = $flag->getCode();
+                if (null === $code) {
+                    continue;
+                }
+                $this->flags[$code] = $flag;
             }
         }
 

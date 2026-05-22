@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class DoctrineFeatureFlagProviderTest extends TestCase
 {
-    private function flag(string $code, bool $enabled, ?string $value = null): FeatureFlag
+    private function flag(?string $code, bool $enabled, ?string $value = null): FeatureFlag
     {
         $flag = new FeatureFlag();
         $flag->setCode($code);
@@ -70,6 +70,14 @@ class DoctrineFeatureFlagProviderTest extends TestCase
         $provider = $this->provider([$this->flag('a', true)]);
 
         $this->assertNull($provider->get('unknown'));
+    }
+
+    public function testItIgnoresFlagsWithoutACode(): void
+    {
+        $provider = $this->provider([$this->flag('a', true), $this->flag(null, true)]);
+
+        $this->assertIsCallable($provider->get('a'));
+        $this->assertNull($provider->get(''));
     }
 
     public function testItQueriesTheRepositoryOnlyOncePerRequest(): void
