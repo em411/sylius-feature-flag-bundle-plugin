@@ -61,7 +61,7 @@ final class TestKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
-        $loader->load(function (ContainerBuilder $container): void {
+        $loader->load(static function (ContainerBuilder $container): void {
             $container->loadFromExtension('framework', [
                 'secret' => 'test',
                 'test' => true,
