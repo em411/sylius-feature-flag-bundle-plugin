@@ -1,9 +1,15 @@
 em411_sylius_feature_flag:
     ui:
         feature_flags: Flagi funkcjonalności
+        new_feature_flag: Nowa flaga funkcjonalności
+        edit_feature_flag: Edytuj flagę funkcjonalności
         code: Kod
         description: Opis
     form:
         code: Kod
         value: Wartość
         description: Opis
+
+bitbag_sylius_acl_plugin:
+    parent:
+        feature_flags: Flagi funkcjonalności

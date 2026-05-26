@@ -1,9 +1,15 @@
 em411_sylius_feature_flag:
     ui:
         feature_flags: Feature flags
+        new_feature_flag: New feature flag
+        edit_feature_flag: Edit feature flag
         code: Code
         description: Description
     form:
         code: Code
         value: Value
         description: Description
+
+bitbag_sylius_acl_plugin:
+    parent:
+        feature_flags: Feature flags
