@@ -27,12 +27,6 @@
         "symfony/yaml": "^4.4",
         "twig/twig": "^2.12 || ^3.0"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/em411/feature-flag-bundle"
-        }
-    ],
     "autoload": {
         "psr-4": { "Em411\\SyliusFeatureFlagPlugin\\": "src/" }
     },

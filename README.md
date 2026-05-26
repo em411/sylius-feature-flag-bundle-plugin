@@ -21,18 +21,6 @@ feature (`@AsFeature`) of the same code.
 composer require em411/sylius-feature-flag-bundle-plugin
 ```
 
-`em411/feature-flag-bundle` is not on Packagist — add it as a VCS repository in
-your application's `composer.json` before requiring this plugin:
-
-```json
-{
-    "repositories": [
-        { "type": "vcs", "url": "https://github.com/em411/feature-flag-bundle" },
-        { "type": "vcs", "url": "https://github.com/em411/sylius-feature-flag-bundle-plugin" }
-    ]
-}
-```
-
 ### 1. Register the bundles
 
 ```php
