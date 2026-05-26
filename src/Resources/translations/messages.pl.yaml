@@ -1,0 +1,9 @@
+em411_sylius_feature_flag:
+    ui:
+        feature_flags: Flagi funkcjonalności
+        code: Kod
+        description: Opis
+    form:
+        code: Kod
+        value: Wartość
+        description: Opis
