@@ -3,7 +3,13 @@ em411_sylius_feature_flag_admin_feature_flag:
         alias: em411_sylius_feature_flag.feature_flag
         section: admin
         templates: "@SyliusAdmin/Crud"
+        except: ['show']
         redirect: update
         grid: em411_sylius_feature_flag_admin_feature_flag
-        permission: false
+        permission: true
+        vars:
+            all:
+                subheader: em411_sylius_feature_flag.ui.feature_flags
+            index:
+                icon: flag
     type: sylius.resource

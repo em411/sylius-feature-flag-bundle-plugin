@@ -58,6 +58,23 @@ bin/console doctrine:migrations:diff
 bin/console doctrine:migrations:migrate
 ```
 
+### 4. Clear the cache
+
+After installing or upgrading, clear the Symfony cache so the bundle's
+translations and grid config are picked up:
+
+```bash
+bin/console cache:clear
+```
+
+### 5. (BitBag ACL plugin only) grant the permission
+
+If your project uses [BitBagCommerce/SyliusAclPlugin](https://github.com/BitBagCommerce/SyliusAclPlugin)
+(or a fork of it), open **Configuration → Administrators → Roles**, edit the
+role that should manage feature flags, and tick the **Feature flag** entries.
+Without this step the grid renders without **Edit** / **Delete** buttons because
+the ACL plugin filters out actions for routes the role hasn't been granted.
+
 ## Usage
 
 Open **Configuration → Feature flags** in the Sylius admin to manage flags.
