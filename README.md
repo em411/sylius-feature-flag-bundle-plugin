@@ -1,9 +1,13 @@
 # Sylius FeatureFlag Bundle Plugin
 
+[![CI](https://github.com/em411/sylius-feature-flag-bundle-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/em411/sylius-feature-flag-bundle-plugin/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/github/license/em411/sylius-feature-flag-bundle-plugin)](LICENSE)
+[![Latest Stable Version](https://img.shields.io/github/v/release/em411/sylius-feature-flag-bundle-plugin?sort=semver)](https://github.com/em411/sylius-feature-flag-bundle-plugin/releases)
+
 Manage [`em411/feature-flag-bundle`](https://github.com/em411/feature-flag-bundle)
 feature flags from the **Sylius admin panel**.
 
-Compatible with **Sylius 1.8 / Symfony 4.4 / PHP 7.4**.
+Tested on **PHP 7.4 – 8.1** with **Sylius 1.8+** on **Symfony 4.4**.
 
 Feature flags become a Sylius resource: an admin can create, edit and delete
 them in a grid. Each flag has a `code`, an `enabled` toggle, an optional `value`
